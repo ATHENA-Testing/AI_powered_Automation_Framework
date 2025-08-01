@@ -1,13 +1,3 @@
-<<<<<<< HEAD
 Test Case 1: Amazon Search Functionality
 Description: Verify that user can search for product on Amazon website.
 Steps: Launch the Amazon.com website. -> Click on the 'Search' icon. -> Enter 'iPad Pro' in the search bar.
-Expected Result: The search results page should display products matching the search query.
---------------------------------------------------
-=======
-Test Case 1: Amazon Search Functionality
-Description: Verify that user can search for product on Amazon website.
-Steps: Launch the Amazon.com website. -> Click on the 'Search' icon. -> Enter 'iPad Pro' in the search bar.
-Expected Result: The search results page should display products matching the search query.
---------------------------------------------------
->>>>>>> 765b006 (Updated)

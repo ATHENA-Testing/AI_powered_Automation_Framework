@@ -33,9 +33,9 @@ from src.browser_agent import BrowserAutomationAgent
 from src.git_manager import GitManager
 from src.file_processor import FileProcessor
 from src.report_generator import ReportGenerator
-from src.Browser_use import GeminiLLMWrapper
-from src.Browser_use import run_task_sync
-from src.Browser_use import run_browser_task
+#from src.Browser_use import GeminiLLMWrapper
+# from src.Browser_use import run_task_sync
+# from src.Browser_use import run_browser_task
 from src.logger import FrameworkLogger
 
 # Page configuration
@@ -58,7 +58,7 @@ class StreamlitApp(LoggerMixin):
         self.git_manager = GitManager(self.config)
         self.file_processor = FileProcessor(self.config)
         self.report_generator = ReportGenerator(self.config)
-        self.Browser_use = GeminiLLMWrapper()
+       # self.Browser_use = GeminiLLMWrapper()
         
         #self.logger = FrameworkLogger()
         # Initialize session state
@@ -540,19 +540,17 @@ class StreamlitApp(LoggerMixin):
                 file.write(script_content)
             with st.spinner("Running browser agent..."):
                 try:
-                    print(script_content)
                     script_path = current_directory +"\\"+"agent.py"
-                    result = subprocess.run(['C:/Users/Kasi.Reddy/AppData/Local/Programs/Python/Python313/python.exe', script_path], capture_output=True, text=True)
+                    print(file_path)
+                    print(script_content)
+                    print(script_path)
+                    
+                    #C:/Users/Kasi.Reddy/AppData/Local/Programs/Python/Python313/python.exe
+                    result = subprocess.run(['Python', script_path], capture_output=True, text=True)
                     st.success("✅ Task executed successfully!")
-                    #st.subheader("Result")
+                    st.subheader("Result")
                     #st.markdown(result)
-                    # log_file_name = f"execution_log_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
-                    # log_file_path = self.logs_path / log_file_name
-                    # with open(log_file_path, "w") as f:
-                    #     json.dump(execution_log, f, indent=4)
-                    # self.logger.info(f"Execution log saved to {log_file_path}")
-
-
+                    
                 except Exception as e:
                     st.error(f"❌ Error: {str(e)}")
     
