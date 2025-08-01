@@ -364,7 +364,7 @@ class StreamlitApp(LoggerMixin):
                     for i, tc in enumerate(st.session_state.test_cases, 1):
                         f.write(f"Test Case {i}: {tc.get('title', '')}\n")
                         f.write(f"Description: {tc.get('description', '')}\n")
-                        f.write(f"Steps: {' -> '.join(tc.get('steps', []))}\n")
+                        f.write(f"Steps: {' -> '.join(step['step'] for step in tc.get('steps', []))}\n")
                         f.write(f"Expected Result: {tc.get('expected_result', '')}\n")
                         f.write("-" * 50 + "\n")
                 
@@ -692,7 +692,7 @@ class StreamlitApp(LoggerMixin):
                 st.warning("⚠️ Some tests failed - Auto-commit disabled")
     
 
-    
+
     def run(self):
         """Run the Streamlit application"""
         # Render header
