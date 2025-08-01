@@ -691,6 +691,8 @@ class StreamlitApp(LoggerMixin):
             else:
                 st.warning("⚠️ Some tests failed - Auto-commit disabled")
     
+
+    
     def run(self):
         """Run the Streamlit application"""
         # Render header
